@@ -18,6 +18,7 @@ mod frame_history;
 mod gui;
 mod input_action;
 mod input_manager;
+pub(crate) mod log_utils;
 mod sdl_wgpu;
 mod terminal;
 
@@ -27,7 +28,6 @@ use gui::Gui;
 use input_action::{InputAction, InputActionBuilder};
 use input_manager::InputManager;
 use sdl_wgpu::{SdlWgpu, SdlWgpuConfiguration};
-use terminal::clear_terminal;
 
 #[derive(Copy, Clone, Debug, Enum)]
 enum InputActionType {
@@ -107,7 +107,7 @@ impl App<'_> {
 
         let egui_render = EguiRender::new(platform.clone(), sdl_wgpu.clone());
 
-        Self::clear_logs();
+        // log_utils::clear_logs();
 
         let engine = Rc::new(RefCell::new(Engine::new(cfg.engine_cfg.clone(), sdl_wgpu.clone())?));
 
@@ -146,12 +146,6 @@ impl App<'_> {
         log::info!("Number of logical cores: {}", num_cpus::get());
 
         Ok(app)
-    }
-
-    fn clear_logs() {
-        #[allow(clippy::unwrap_used)]
-        clear_terminal().unwrap();
-        egui_logger::clear_log();
     }
 
     fn init_input() -> Result<(InputActionMap, InputManager)> {
