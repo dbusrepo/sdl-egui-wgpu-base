@@ -107,7 +107,7 @@ impl App<'_> {
 
         let egui_render = EguiRender::new(platform.clone(), sdl_wgpu.clone());
 
-        // log_utils::clear_logs();
+        log_utils::clear_logs();
 
         let engine = Rc::new(RefCell::new(Engine::new(cfg.engine_cfg.clone(), sdl_wgpu.clone())?));
 
