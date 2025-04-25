@@ -3,7 +3,6 @@ use std::rc::Rc;
 use std::{thread, time};
 
 use anyhow::{Result, anyhow};
-use egui_render::EguiRender;
 use egui_sdl2_platform::sdl2::EventPump;
 use egui_sdl2_platform::{Platform, sdl2};
 use enum_map::{Enum, EnumMap, enum_map};
@@ -22,6 +21,7 @@ pub(crate) mod log_utils;
 mod sdl_wgpu;
 mod terminal;
 
+use egui_render::EguiRender;
 use engine::{Engine, EngineConfiguration};
 use frame_history::FrameHistory;
 use gui::Gui;
