@@ -3,7 +3,7 @@ use std::rc::Rc;
 
 use anyhow::Result;
 
-use super::super::sdl_wgpu::{SdlWgpu, SdlWgpuConfiguration};
+use super::super::sdl_wgpu::SdlWgpu;
 
 pub(super) struct Renderer<'a> {
     sdl_wgpu: Rc<RefCell<SdlWgpu<'a>>>,
