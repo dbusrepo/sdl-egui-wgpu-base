@@ -1,3 +1,3 @@
-# Graphics with wgpu and Rust
+# Graphics with sdl2, wgpu and Rust
 
-Base project with sdl2, egui and wgpu
+Base project with sdl2, wgpu, egui and Rust
